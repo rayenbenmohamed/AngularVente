@@ -1,0 +1,89 @@
+
+
+<head>
+  
+
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Your existing styles or other CSS files go here -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Bootstrap default background color */
+            padding-top: 20px;
+        }
+    
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+    
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    
+        .card-header {
+            background-color:rgba(0, 0, 0, 0.1); /* Bootstrap primary color */
+            color: #fff;
+            padding: 10px;
+        }
+    
+        .card-title {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    
+        .card-body {
+            padding: 20px;
+        }
+    
+        .btn-primary {
+            background-color: #007bff; /* Bootstrap primary color */
+            border: none;
+        }
+    
+        .btn-primary:hover {
+            background-color: #0056b3; /* Slightly darker shade on hover */
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="row card-deck">
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of productOrders">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4>{{p.product.designation }} </h4>
+                    </div>
+                    <div class="card-body">
+                        <a href="#"><img class="card-img-top" src="{{p.product.imageart}}" alt="" width="150"
+                                height="250"></a>
+                        <h5 class="card-title">{{p.product.prix}} TND</h5>
+                        <div class="row">
+                            <div class="col-12 padding-0">
+                                <button class="btn btn-secondary" (click)="addProductToCart(p)"
+                                    [disabled]="p.product.qtestock === 0">Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js (Bootstrap dependency) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Your existing scripts or other JavaScript files go here -->
+    <script>
+        // Add any custom scripts if needed
+    </script>
+</body>
+
